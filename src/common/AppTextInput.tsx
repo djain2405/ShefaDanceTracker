@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React from 'react';
 import { View, StyleSheet, TextInput, Text, Button, TouchableOpacity, Platform } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 

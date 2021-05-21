@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, TextInput, Text, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import AppTextInput from './common/AppTextInput';
+import AppScreen from './common/Screen';
 
 export default function LoginScreen() {
 
@@ -9,7 +10,7 @@ export default function LoginScreen() {
     const [password, setPassword] = useState('')
     
     return (
-      <SafeAreaView style={styles.container}>
+      <AppScreen style={styles.container}>
         <AppTextInput icon={'email'}placeholder={'Enter Email here...'} value={email} onChangeText={(text: string) => {
            setEmail(text)
         }} />
@@ -20,7 +21,7 @@ export default function LoginScreen() {
             <Text style={styles.loginButtonText}>LOGIN</Text>
         </TouchableOpacity>
         <StatusBar style="auto" />
-      </SafeAreaView>
+      </AppScreen>
     );
   }
 

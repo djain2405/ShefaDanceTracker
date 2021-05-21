@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, TextInput, Text, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import AppPicker from './common/AppPicker';
 import AppTextInput from './common/AppTextInput';
+import AppScreen from './common/Screen';
 
 const classArray = [
     {label: 'Class One', value: 1},
@@ -17,7 +18,7 @@ export default function SignUpScreen() {
     const [pickedClass, setPickedClass] = useState()
     
     return (
-      <SafeAreaView style={styles.container}>
+      <AppScreen style={styles.container}>
         <AppTextInput icon={'face-profile'}placeholder={'Enter full name here...'} value={name} onChangeText={(text: string) => {
            setName(text)
         }} />
@@ -32,7 +33,7 @@ export default function SignUpScreen() {
             <Text style={styles.signUpButtonText}>SIGN UP</Text>
         </TouchableOpacity>
         <StatusBar style="auto" />
-      </SafeAreaView>
+      </AppScreen>
     );
   }
 
