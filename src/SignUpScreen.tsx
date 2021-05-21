@@ -18,7 +18,7 @@ export default function SignUpScreen() {
     const [pickedClass, setPickedClass] = useState()
     
     return (
-      <AppScreen style={styles.container}>
+      <AppScreen>
         <AppTextInput icon={'face-profile'}placeholder={'Enter full name here...'} value={name} onChangeText={(text: string) => {
            setName(text)
         }} />
@@ -38,12 +38,6 @@ export default function SignUpScreen() {
   }
 
   const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#848393',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
     signUpButton: {
         backgroundColor: 'orange',
         paddingHorizontal: 16,

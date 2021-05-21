@@ -10,7 +10,7 @@ export default function LoginScreen() {
     const [password, setPassword] = useState('')
     
     return (
-      <AppScreen style={styles.container}>
+      <AppScreen>
         <AppTextInput icon={'email'}placeholder={'Enter Email here...'} value={email} onChangeText={(text: string) => {
            setEmail(text)
         }} />
@@ -26,12 +26,6 @@ export default function LoginScreen() {
   }
 
   const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#848393',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
     loginButton: {
         backgroundColor: 'orange',
         paddingHorizontal: 16,
