@@ -1,23 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import AppTextInput from './common/AppTextInput';
 import AppScreen from './common/Screen';
 
 export default function LogTimeScreen() {
 
-    const [mins, setMins] = useState(0)
     const [secs, setSeconds] = useState(0)
     const [playing, setPlaying] = useState(false)
+
+    let intervalRef: any = useRef()
+
+    const formattedTime = (secs: number) =>  Math.floor(secs) < 10 ? '0'+Math.floor(secs) : Math.floor(secs)
+    
     
     return (
       <AppScreen>
         <Text style={styles.titleText}>Let's go... start Practicing!!</Text>
         <View style={styles.timer}>
-            <Text style={styles.timerText}>{(mins < 10 ? '0'+mins : mins) + ' : '+(secs < 10 ? '0'+secs : secs)}</Text>
+            <Text style={styles.timerText}>{formattedTime(secs/60) + ' : '+ formattedTime(secs%60)}</Text>
         </View>
         <TouchableOpacity style={styles.startButton} onPress={() => {
-            setPlaying(!playing)
+            if(playing) {
+                clearInterval(intervalRef.current)
+            } else {
+                intervalRef.current = setInterval(() => {
+                        setSeconds((secs) => secs + 1)   
+                }, 1000)
+            }
+            setPlaying((playing) => !playing)
         }}>
             <Text style={styles.saveButtonText}>{playing ? 'PAUSE' : 'START'}</Text>
         </TouchableOpacity>
